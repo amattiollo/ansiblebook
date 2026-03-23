@@ -10,3 +10,10 @@ vagrant provision
 vagrant reload --provision
 vagrant up --provision 
 vagrant up --no-provision
+
+# ansible validation
+ansible-playbook --syntax-check webservers-tls.yml
+ansible-lint webservers-tls.yml
+yamllint webservers-tls.yml
+ansible-inventory --hots testserver -i inventory/vagrant.ini
+vagrant validate
